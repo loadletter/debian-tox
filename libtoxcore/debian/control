@@ -1,0 +1,27 @@
+Source: libtoxcore
+Priority: extra
+Maintainer: loadletter <loadletter@users.noreply.github.com>
+Build-Depends: debhelper (>= 8.0.0), autotools-dev, libncurses5-dev, mime-support, libglib2.0-0, libc6-i686, libconfig-dev, libpopt0, libsodium1, pkg-config, check, libpcre3, libsodium-dev, cpio, mawk
+Standards-Version: 3.9.3
+Section: libs
+Homepage: http://tox.im/
+#Vcs-Git: git://git.debian.org/collab-maint/libtoxcore.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/libtoxcore.git;a=summary
+
+Package: libtoxcore-dev
+Section: libdevel
+Architecture: any
+Depends: libtoxcore1 (= ${binary:Version})
+Description: Project Tox core library
+ Project Tox, also known as Tox, is a FOSS (Free and Open Source Software) instant messaging application aimed to replace Skype.
+ With the rise of governmental monitoring programsTox aims to be an easy to use, all-in-one communication platform
+ (including audio, and videochats in the future) that ensures their users full privacy and secure message delivery.
+
+Package: libtoxcore1
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Development files for ProjectTox Core
+ Project Tox, also known as Tox, is a FOSS (Free and Open Source Software) instant messaging application aimed to replace Skype.
+ With the rise of governmental monitoring programsTox aims to be an easy to use, all-in-one communication platform
+ (including audio, and videochats in the future) that ensures their users full privacy and secure message delivery.
