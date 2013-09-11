@@ -7,6 +7,10 @@ LIBTOXCORE_GIT_VER="2e33ffeb8c78de053e58d12eee9b95d8fa811c3a"
 LIBTOXCORE_GIT_URL=https://github.com/irungentoo/ProjectTox-Core.git
 LIBTOXCORE_TMP=$(CURDIR)/tmp/libtoxcore
 
+TOXPRPL_GIT_VER="c0ef48aa945371f6e20d2c62978df281785babe0"
+TOXPRPL_GIT_URL=https://github.com/jin-eld/tox-prpl.git
+TOXPRPL_TMP=$(CURDIR)/tmp/toxprpl
+
 download/libsodium.tar.gz:
 	mkdir -p $(@D)
 	wget $(LIBSODIUM_URL) -O $@
@@ -24,16 +28,16 @@ libsodium1.deb: tmp/libsodium/usr/lib/libsodium.so
 	mkdir -p pkgtmp/libsodium1/DEBIAN
 	cp control_files/libsodium/libsodium1/DEBIAN/* pkgtmp/libsodium1/DEBIAN
 	mkdir -p pkgtmp/libsodium1/usr/lib
-	cp $(LIBSODIUM_TMP)/usr/lib/libsodium.so.4.2.0 pkgtmp/libsodium1/usr/lib/
-	cp $(LIBSODIUM_TMP)/usr/lib/libsodium.so.4 pkgtmp/libsodium1/usr/lib/
+	cp -a $(LIBSODIUM_TMP)/usr/lib/libsodium.so.4.2.0 pkgtmp/libsodium1/usr/lib/
+	cp -a $(LIBSODIUM_TMP)/usr/lib/libsodium.so.4 pkgtmp/libsodium1/usr/lib/
 	dpkg-deb --build pkgtmp/libsodium1 $@
 
 libsodium-dev.deb: tmp/libsodium/usr/lib/libsodium.so
 	mkdir -p pkgtmp/libsodium-dev/DEBIAN
 	cp control_files/libsodium/libsodium-dev/DEBIAN/* pkgtmp/libsodium-dev/DEBIAN
 	mkdir -p pkgtmp/libsodium-dev/usr/lib
-	cp $(LIBSODIUM_TMP)/usr/lib/libsodium.so pkgtmp/libsodium-dev/usr/lib/
-	cp $(LIBSODIUM_TMP)/usr/lib/libsodium.a pkgtmp/libsodium-dev/usr/lib/
+	cp -a $(LIBSODIUM_TMP)/usr/lib/libsodium.so pkgtmp/libsodium-dev/usr/lib/
+	cp -a $(LIBSODIUM_TMP)/usr/lib/libsodium.a pkgtmp/libsodium-dev/usr/lib/
 	cp -a $(LIBSODIUM_TMP)/usr/include pkgtmp/libsodium-dev/usr/
 	dpkg-deb --build pkgtmp/libsodium-dev $@
 
@@ -60,16 +64,16 @@ libtoxcore1.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 	mkdir -p pkgtmp/libtoxcore1/DEBIAN
 	cp control_files/libtoxcore/libtoxcore1/DEBIAN/* pkgtmp/libtoxcore1/DEBIAN
 	mkdir -p pkgtmp/libtoxcore1/usr/lib
-	cp $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so.0.0.0 pkgtmp/libtoxcore1/usr/lib/
-	cp $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so.0 pkgtmp/libtoxcore1/usr/lib/
+	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so.0.0.0 pkgtmp/libtoxcore1/usr/lib/
+	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so.0 pkgtmp/libtoxcore1/usr/lib/
 	dpkg-deb --build pkgtmp/libtoxcore1 $@
 
 libtoxcore-dev.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 	mkdir -p pkgtmp/libtoxcore-dev/DEBIAN
 	cp control_files/libtoxcore/libtoxcore-dev/DEBIAN/* pkgtmp/libtoxcore-dev/DEBIAN
 	mkdir -p pkgtmp/libtoxcore-dev/usr/lib
-	cp $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so pkgtmp/libtoxcore-dev/usr/lib/
-	cp $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.a pkgtmp/libtoxcore-dev/usr/lib/
+	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so pkgtmp/libtoxcore-dev/usr/lib/
+	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.a pkgtmp/libtoxcore-dev/usr/lib/
 	cp -a $(LIBTOXCORE_TMP)/usr/lib/pkgconfig pkgtmp/libtoxcore-dev/usr/lib/
 	cp -a $(LIBTOXCORE_TMP)/usr/include pkgtmp/libtoxcore-dev/usr/
 	dpkg-deb --build pkgtmp/libtoxcore-dev $@
