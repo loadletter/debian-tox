@@ -1,0 +1,14 @@
+Package: libtoxcore1
+Source: libtoxcore
+Version: 0.1+git20130908.2e33ffeb-1
+Architecture: i386
+Maintainer: loadletter <loadletter@users.noreply.github.com>
+Installed-Size: 97
+Depends: libc6 (>= 2.1.3), libsodium1
+Section: libs
+Priority: extra
+Homepage: http://tox.im/
+Description: Development files for ProjectTox Core
+ Project Tox, also known as Tox, is a FOSS (Free and Open Source Software) instant messaging application aimed to replace Skype.
+ With the rise of governmental monitoring programsTox aims to be an easy to use, all-in-one communication platform
+ (including audio, and videochats in the future) that ensures their users full privacy and secure message delivery.
