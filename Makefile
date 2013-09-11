@@ -86,3 +86,31 @@ libtoxcore-clean:
 	rm -rf pkgtmp/libtoxcore1
 	rm -rf pkgtmp/libtoxcore-dev
 	rm -f libtoxcore1.deb libtoxcore-dev.deb
+
+
+build/tox-prpl:
+	mkdir -p $(@D)
+	cd $(@D) && git clone $(TOXPRPL_GIT_URL) && cd $(@F) && git checkout $(TOXPRPL_GIT_VER)
+	
+tmp/toxprpl/usr/lib/purple-2/libtox.so: build/tox-prpl
+	mkdir -p $(@D)
+	cd $< && autoreconf -i && ./configure --prefix=$(TOXPRPL_TMP)/usr && make && make install
+
+toxprpl.deb: tmp/toxprpl/usr/lib/purple-2/libtox.so
+	mkdir -p pkgtmp/toxprpl/DEBIAN
+	cp control_files/toxprpl/DEBIAN/* pkgtmp/toxprpl/DEBIAN
+	mkdir -p pkgtmp/toxprpl/usr/lib/purple-2
+	mkdir -p pkgtmp/toxprpl/usr/share/
+	cp -a $(TOXPRPL_TMP)/usr/share/pixmaps pkgtmp/toxprpl/usr/share/
+	cp -a $(TOXPRPL_TMP)/usr/lib/purple-2/libtox.so pkgtmp/toxprpl/usr/lib/purple-2
+	dpkg-deb --build pkgtmp/toxprpl $@
+	
+toxprpl-all: toxprpl.deb
+
+toxprpl-clean:
+	rm -rf build/tox-prpl
+	rm -rf $(TOXPRPL_TMP)
+	rm -rf pkgtmp/toxprpl
+	rm -f toxprpl.deb
+	
+clean: libsodium-clean libtoxcore-clean toxprpl-clean
