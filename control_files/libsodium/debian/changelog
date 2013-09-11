@@ -1,5 +1,0 @@
-libsodium (0.4.2-1) unstable; urgency=low
-
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
-
- -- loadletter <loadletter@users.noreply.github.com>  Sun, 08 Sep 2013 23:07:05 +0200

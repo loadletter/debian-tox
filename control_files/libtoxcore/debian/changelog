@@ -1,5 +1,0 @@
-libtoxcore (0.1+git20130908.2e33ffeb-1) unstable; urgency=low
-
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
-
- -- loadletter <loadletter@users.noreply.github.com>  Mon, 09 Sep 2013 20:54:15 +0200
