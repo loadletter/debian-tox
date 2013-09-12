@@ -11,5 +11,5 @@
 ##USE AT YOUR OWN RISK
 
 ```bash
-# apt-get install build-essential libtool autotools-dev automake libconfig-dev ncurses-dev libpurple-dev libglib2.0-dev check
+\# apt-get install build-essential libtool autotools-dev automake libconfig-dev ncurses-dev libpurple-dev libglib2.0-dev check
 ```
