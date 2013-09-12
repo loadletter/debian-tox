@@ -1,4 +1,6 @@
 #TODO: check integrity
+DEBIAN_ARCH=$(shell dpkg --print-architecture)
+
 LIBSODIUM_VER="0.4.2"
 LIBSODIUM_URL=https://github.com/jedisct1/libsodium/releases/download/$(LIBSODIUM_VER)/libsodium-$(LIBSODIUM_VER).tar.gz
 LIBSODIUM_TMP=$(CURDIR)/tmp/libsodium
@@ -26,7 +28,7 @@ tmp/libsodium/usr/lib/libsodium.so: build/libsodium
 
 libsodium1.deb: tmp/libsodium/usr/lib/libsodium.so
 	mkdir -p pkgtmp/libsodium1/DEBIAN
-	cp control_files/libsodium/libsodium1/DEBIAN/* pkgtmp/libsodium1/DEBIAN
+	cp control_files/$(DEBIAN_ARCH)/libsodium/libsodium1/DEBIAN/* pkgtmp/libsodium1/DEBIAN
 	mkdir -p pkgtmp/libsodium1/usr/lib
 	cp -a $(LIBSODIUM_TMP)/usr/lib/libsodium.so.4.2.0 pkgtmp/libsodium1/usr/lib/
 	cp -a $(LIBSODIUM_TMP)/usr/lib/libsodium.so.4 pkgtmp/libsodium1/usr/lib/
@@ -34,7 +36,7 @@ libsodium1.deb: tmp/libsodium/usr/lib/libsodium.so
 
 libsodium-dev.deb: tmp/libsodium/usr/lib/libsodium.so
 	mkdir -p pkgtmp/libsodium-dev/DEBIAN
-	cp control_files/libsodium/libsodium-dev/DEBIAN/* pkgtmp/libsodium-dev/DEBIAN
+	cp control_files/$(DEBIAN_ARCH)/libsodium/libsodium-dev/DEBIAN/* pkgtmp/libsodium-dev/DEBIAN
 	mkdir -p pkgtmp/libsodium-dev/usr/lib
 	cp -a $(LIBSODIUM_TMP)/usr/lib/libsodium.so pkgtmp/libsodium-dev/usr/lib/
 	cp -a $(LIBSODIUM_TMP)/usr/lib/libsodium.a pkgtmp/libsodium-dev/usr/lib/
@@ -62,7 +64,7 @@ tmp/libtoxcore/usr/lib/libtoxcore.so: build/ProjectTox-Core
 
 libtoxcore1.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 	mkdir -p pkgtmp/libtoxcore1/DEBIAN
-	cp control_files/libtoxcore/libtoxcore1/DEBIAN/* pkgtmp/libtoxcore1/DEBIAN
+	cp control_files/$(DEBIAN_ARCH)/libtoxcore/libtoxcore1/DEBIAN/* pkgtmp/libtoxcore1/DEBIAN
 	mkdir -p pkgtmp/libtoxcore1/usr/lib
 	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so.0.0.0 pkgtmp/libtoxcore1/usr/lib/
 	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so.0 pkgtmp/libtoxcore1/usr/lib/
@@ -70,7 +72,7 @@ libtoxcore1.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 
 libtoxcore-dev.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 	mkdir -p pkgtmp/libtoxcore-dev/DEBIAN
-	cp control_files/libtoxcore/libtoxcore-dev/DEBIAN/* pkgtmp/libtoxcore-dev/DEBIAN
+	cp control_files/$(DEBIAN_ARCH)/libtoxcore/libtoxcore-dev/DEBIAN/* pkgtmp/libtoxcore-dev/DEBIAN
 	mkdir -p pkgtmp/libtoxcore-dev/usr/lib
 	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so pkgtmp/libtoxcore-dev/usr/lib/
 	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.a pkgtmp/libtoxcore-dev/usr/lib/
@@ -98,7 +100,7 @@ tmp/toxprpl/usr/lib/purple-2/libtox.so: build/tox-prpl
 
 toxprpl.deb: tmp/toxprpl/usr/lib/purple-2/libtox.so
 	mkdir -p pkgtmp/toxprpl/DEBIAN
-	cp control_files/toxprpl/DEBIAN/* pkgtmp/toxprpl/DEBIAN
+	cp control_files/$(DEBIAN_ARCH)/toxprpl/DEBIAN/* pkgtmp/toxprpl/DEBIAN
 	mkdir -p pkgtmp/toxprpl/usr/lib/purple-2
 	mkdir -p pkgtmp/toxprpl/usr/share/
 	cp -a $(TOXPRPL_TMP)/usr/share/pixmaps pkgtmp/toxprpl/usr/share/
