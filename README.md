@@ -5,7 +5,7 @@
 - Fix some things
 - Add toxic
 
-##USE AT YOUR OWN RISK
+###WARNING: USE AT YOUR OWN RISK
  - This script is made to provide an easy way to install/uninstall libsodium, ProjectTox-Core and tox-prpl, without clogging up the system with files that would need to uninstalled manually.
  - Both ProjectTox and this script are alpha-quality software.
 
@@ -58,3 +58,11 @@ Then if it's not up-to-date, run the above uninstallation command and repeat ins
 
 ###License:
 GPL3
+
+###Links:
+- Tox homepage: http://tox.im/
+- Tox-prpl homepage: http://tox.dhs.org/
+
+- Libsodium github: https://github.com/jedisct1/libsodium
+- Tox github: https://github.com/irungentoo/ProjectTox-Core
+- Tox-prpl github: https://github.com/jin-eld/tox-prpl
