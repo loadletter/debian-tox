@@ -1,6 +1,7 @@
 ##Script to build some basic debian packages of ProjectTox related things.
 
 ###TODO:
+- Add versions to dependencies requirements
 - Add documentation to the package, where available
 - Fix some things
 - Add toxic
@@ -49,6 +50,7 @@ root# apt-get remove libsodium1 libsodium-dev libtoxcore1 libtoxcore-dev toxprpl
 ```
 
 - To update (assuming you're already in the debian-tox directory):
+Run the above uninstallation command
 ```bash
 user$ make clean
 user$ git pull
