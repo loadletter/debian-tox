@@ -60,7 +60,7 @@ build/ProjectTox-Core:
 
 tmp/libtoxcore/usr/lib/libtoxcore.so: build/ProjectTox-Core
 	mkdir -p $(@D)
-	cd $< && sh autogen.sh && ./configure --prefix=$(LIBTOXCORE_TMP)/usr && make && make install
+	cd $< && sh autogen.sh && ./configure --disable-dht-bootstrap-daemon --prefix=$(LIBTOXCORE_TMP)/usr && make && make install
 
 libtoxcore1.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 	mkdir -p pkgtmp/libtoxcore1/DEBIAN
