@@ -5,11 +5,11 @@ LIBSODIUM_VER="0.4.2"
 LIBSODIUM_URL=https://github.com/jedisct1/libsodium/releases/download/$(LIBSODIUM_VER)/libsodium-$(LIBSODIUM_VER).tar.gz
 LIBSODIUM_TMP=$(CURDIR)/tmp/libsodium
 
-LIBTOXCORE_GIT_VER="beff2b6de659a708ed366a9ae925eab8c4ca0ddd"
+LIBTOXCORE_GIT_VER="378a87d523594e32f9c306707357a5e4e8c19d2d"
 LIBTOXCORE_GIT_URL=https://github.com/irungentoo/ProjectTox-Core.git
 LIBTOXCORE_TMP=$(CURDIR)/tmp/libtoxcore
 
-TOXPRPL_GIT_VER="54d78aaf891b29d10fd230f39e8b6502867947ed"
+TOXPRPL_GIT_VER="17a3fd9199ea97a3a04ee2f919713fb533c3afee"
 TOXPRPL_GIT_URL=https://github.com/jin-eld/tox-prpl.git
 TOXPRPL_TMP=$(CURDIR)/tmp/toxprpl
 
