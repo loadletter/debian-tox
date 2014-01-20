@@ -13,6 +13,8 @@ TOXPRPL_GIT_VER="34824029ca454029a4852d46a508a1c6f291f422"
 TOXPRPL_GIT_URL=https://github.com/jin-eld/tox-prpl.git
 TOXPRPL_TMP=$(CURDIR)/tmp/toxprpl
 
+CFLAGS="-march=native -O3"
+
 download/libsodium.tar.gz:
 	mkdir -p $(@D)
 	wget $(LIBSODIUM_URL) -O $@
@@ -24,7 +26,7 @@ build/libsodium: download/libsodium.tar.gz
 
 tmp/libsodium/usr/lib/libsodium.so: build/libsodium
 	mkdir -p $(@D)
-	cd $< && ./configure --prefix=$(LIBSODIUM_TMP)/usr && make && make check && make install
+	cd $< && CFLAGS=$(CFLAGS) ./configure --prefix=$(LIBSODIUM_TMP)/usr && make && make check && make install
 
 libsodium1.deb: tmp/libsodium/usr/lib/libsodium.so
 	mkdir -p pkgtmp/libsodium1/DEBIAN
@@ -60,7 +62,7 @@ build/ProjectTox-Core:
 
 tmp/libtoxcore/usr/lib/libtoxcore.so: build/ProjectTox-Core
 	mkdir -p $(@D)
-	cd $< && sh autogen.sh && ./configure --disable-dht-bootstrap-daemon --prefix=$(LIBTOXCORE_TMP)/usr && make && make install
+	cd $< && sh autogen.sh && CFLAGS=$(CFLAGS) ./configure --disable-dht-bootstrap-daemon --prefix=$(LIBTOXCORE_TMP)/usr && make && make install
 
 libtoxcore1.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 	mkdir -p pkgtmp/libtoxcore1/DEBIAN
@@ -96,7 +98,7 @@ build/tox-prpl:
 	
 tmp/toxprpl/usr/lib/purple-2/libtox.so: build/tox-prpl
 	mkdir -p $(@D)
-	cd $< && autoreconf -i && ./configure --prefix=$(TOXPRPL_TMP)/usr && make && make install
+	cd $< && autoreconf -i && CFLAGS=$(CFLAGS) ./configure --prefix=$(TOXPRPL_TMP)/usr && make && make install
 
 toxprpl.deb: tmp/toxprpl/usr/lib/purple-2/libtox.so
 	mkdir -p pkgtmp/toxprpl/DEBIAN
