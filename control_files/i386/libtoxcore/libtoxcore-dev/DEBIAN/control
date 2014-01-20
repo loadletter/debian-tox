@@ -1,10 +1,10 @@
 Package: libtoxcore-dev
 Source: libtoxcore
-Version: 0.1+git20140117.91b06da0-1
+Version: 0.1+git20140120.b9896e31-1
 Architecture: i386
 Maintainer: loadletter <loadletter@users.noreply.github.com>
 Installed-Size: 130
-Depends: libtoxcore1 (= 0.1+git20140117.91b06da0-1)
+Depends: libtoxcore1 (= 0.1+git20140120.b9896e31-1)
 Section: libdevel
 Priority: extra
 Homepage: http://tox.im/

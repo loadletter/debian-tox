@@ -5,7 +5,7 @@ LIBSODIUM_VER="0.4.2"
 LIBSODIUM_URL=https://github.com/jedisct1/libsodium/releases/download/$(LIBSODIUM_VER)/libsodium-$(LIBSODIUM_VER).tar.gz
 LIBSODIUM_TMP=$(CURDIR)/tmp/libsodium
 
-LIBTOXCORE_GIT_VER="91b06da0c3aa399edf7e00e33a8f380b42e44f43"
+LIBTOXCORE_GIT_VER="b9896e31dcef302f6f454f2256ae02a32a5714ac"
 LIBTOXCORE_GIT_URL=https://github.com/irungentoo/ProjectTox-Core.git
 LIBTOXCORE_TMP=$(CURDIR)/tmp/libtoxcore
 
