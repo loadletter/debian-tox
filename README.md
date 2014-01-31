@@ -13,6 +13,7 @@
 ###Tested on:
 - Debian 7 (wheezy) i386
 - Ubuntu 12.04 amd64
+- Debian GNU/Hurd (hurd-i386)
 
 ###Usage:
 ######(commands preceded by root# need to be run as root, use sudo on ubuntu)
