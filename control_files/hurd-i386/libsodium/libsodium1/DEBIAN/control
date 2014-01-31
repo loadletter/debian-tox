@@ -1,0 +1,14 @@
+Package: libsodium1
+Source: libsodium
+Version: 0.4.2-1
+Architecture: hurd-i386
+Maintainer: loadletter <loadletter@users.noreply.github.com>
+Installed-Size: 492
+Depends: libc-dev
+Section: libs
+Priority: extra
+Homepage: https://github.com/jedisct1/libsodium
+Description: Crypto library based on NaCl
+ NaCl (pronounced "salt") is a new easy-to-use high-speed software library for network communication, encryption, decryption, signatures, etc.
+ NaCl's goal is to provide all of the core operations needed to build higher-level cryptographic tools.
+ Sodium is a portable, cross-compilable, installable, packageable fork of NaCl, with a compatible API.
