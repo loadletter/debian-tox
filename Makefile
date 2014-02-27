@@ -5,7 +5,7 @@ LIBSODIUM_VER="0.4.2"
 LIBSODIUM_URL=https://github.com/jedisct1/libsodium/releases/download/$(LIBSODIUM_VER)/libsodium-$(LIBSODIUM_VER).tar.gz
 LIBSODIUM_TMP=$(CURDIR)/tmp/libsodium
 
-LIBTOXCORE_GIT_VER="4b4507b44fe6cc73dea377c1d8a48b00a48be296"
+LIBTOXCORE_GIT_VER="8a31ff6269903d483b55f371af4bd0eb12a56bff"
 LIBTOXCORE_GIT_URL=https://github.com/irungentoo/ProjectTox-Core.git
 LIBTOXCORE_TMP=$(CURDIR)/tmp/libtoxcore
 
@@ -62,7 +62,7 @@ build/ProjectTox-Core:
 
 tmp/libtoxcore/usr/lib/libtoxcore.so: build/ProjectTox-Core
 	mkdir -p $(@D)
-	cd $< && sh autogen.sh && CFLAGS=$(CFLAGS) ./configure --disable-dht-bootstrap-daemon --prefix=$(LIBTOXCORE_TMP)/usr && make && make install
+	cd $< && sh autogen.sh && CFLAGS=$(CFLAGS) ./configure --disable-daemon --prefix=$(LIBTOXCORE_TMP)/usr && make && make install
 
 libtoxcore1.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 	mkdir -p pkgtmp/libtoxcore1/DEBIAN

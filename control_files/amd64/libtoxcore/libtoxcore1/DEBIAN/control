@@ -1,6 +1,6 @@
 Package: libtoxcore1
 Source: libtoxcore
-Version: 0.1+git20140218.4b4507b4-1
+Version: 0.1+git20140227.8a31ff62-1
 Architecture: amd64
 Maintainer: loadletter <loadletter@users.noreply.github.com>
 Installed-Size: 97
