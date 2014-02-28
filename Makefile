@@ -9,7 +9,7 @@ LIBTOXCORE_GIT_VER="8a31ff6269903d483b55f371af4bd0eb12a56bff"
 LIBTOXCORE_GIT_URL=https://github.com/irungentoo/ProjectTox-Core.git
 LIBTOXCORE_TMP=$(CURDIR)/tmp/libtoxcore
 
-TOXPRPL_GIT_VER="34824029ca454029a4852d46a508a1c6f291f422"
+TOXPRPL_GIT_VER="191cdcc624de9692850fdd36bfb5fbf8017e4c58"
 TOXPRPL_GIT_URL=https://github.com/jin-eld/tox-prpl.git
 TOXPRPL_TMP=$(CURDIR)/tmp/toxprpl
 
