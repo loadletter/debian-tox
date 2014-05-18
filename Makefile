@@ -5,7 +5,7 @@ LIBSODIUM_VER="0.4.2"
 LIBSODIUM_URL=https://github.com/jedisct1/libsodium/releases/download/$(LIBSODIUM_VER)/libsodium-$(LIBSODIUM_VER).tar.gz
 LIBSODIUM_TMP=$(CURDIR)/tmp/libsodium
 
-LIBTOXCORE_GIT_VER="6f0f3632c08e317493a85160b54361f64106fd63"
+LIBTOXCORE_GIT_VER="77d2ad373aa3fe3472a22e483a2ad6bed7e3fe5f"
 LIBTOXCORE_GIT_URL=https://github.com/irungentoo/ProjectTox-Core.git
 LIBTOXCORE_TMP=$(CURDIR)/tmp/libtoxcore
 
@@ -62,7 +62,7 @@ build/ProjectTox-Core:
 
 tmp/libtoxcore/usr/lib/libtoxcore.so: build/ProjectTox-Core
 	mkdir -p $(@D)
-	cd $< && sh autogen.sh && CFLAGS=$(CFLAGS) ./configure --disable-daemon --prefix=$(LIBTOXCORE_TMP)/usr && make && make install
+	cd $< && sh autogen.sh && CFLAGS=$(CFLAGS) ./configure --disable-daemon --disable-av --prefix=$(LIBTOXCORE_TMP)/usr && make && make install
 
 libtoxcore1.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 	mkdir -p pkgtmp/libtoxcore1/DEBIAN
@@ -77,6 +77,7 @@ libtoxcore-dev.deb: tmp/libtoxcore/usr/lib/libtoxcore.so
 	cp control_files/$(DEBIAN_ARCH)/libtoxcore/libtoxcore-dev/DEBIAN/* pkgtmp/libtoxcore-dev/DEBIAN
 	mkdir -p pkgtmp/libtoxcore-dev/usr/lib
 	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.so pkgtmp/libtoxcore-dev/usr/lib/
+	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.la pkgtmp/libtoxcore-dev/usr/lib/
 	cp -a $(LIBTOXCORE_TMP)/usr/lib/libtoxcore.a pkgtmp/libtoxcore-dev/usr/lib/
 	cp -a $(LIBTOXCORE_TMP)/usr/lib/pkgconfig pkgtmp/libtoxcore-dev/usr/lib/
 	cp -a $(LIBTOXCORE_TMP)/usr/include pkgtmp/libtoxcore-dev/usr/
